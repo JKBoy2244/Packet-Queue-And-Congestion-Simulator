@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <cstdlib>
 
 #include "constants.h"
 #include "bufferCapacityInput.h"
