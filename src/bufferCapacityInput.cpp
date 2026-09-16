@@ -31,6 +31,28 @@ namespace bufferCapacity {
           std::cout << "Invalid input. Please enter a whole number.\n";
           continue;
      }
+
+    /*
+     std::string remainingInput {};
+     std::getline(std::cin, remainingInput);
+
+     bool onlyWhitespace { true };
+
+     for (char character : remainingInput) {
+       if (!std::isspace(static_cast<unsigned char>(character)))  {
+         
+         onlyWhitespace = false;
+         break;
+      }
+    }
+
+    if (!onlyWhitespace)  {
+      
+      std::cout << "Invalid input. Enter exactly one whole number.\n";
+      continue;
+    }
+      
+    */
       
       bool validRange {bufferCapacityNumber >= constants::minimumBufferCapacity && bufferCapacityNumber <= constants::maximumBufferCapacity};
       if (validRange) {
