@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <cstdlib>
 #include "constants.h"
 
 using namespace std;
@@ -24,22 +25,16 @@ namespace bufferCapacity {
 
           if (bufferAttempts == bufferChances) {
               std::cout << "Sorry, your 3 chances ran out!";
-              return 0;
+              return EXIT_FAILURE;
           }
 
           std::cout << "Invalid input. Please enter a whole number.\n";
           continue;
      }
       
-      bool validRange {bufferCapacityNumber >= 1 && bufferCapacityNumber <= 1000000};
-      if (!validRange) {
+      bool validRange {bufferCapacityNumber >= constants::minimumBufferCapacity && bufferCapacityNumber <= constants::maximumBufferCapacity};
+      if (validRange) {
 
-        if (bufferAttempts == bufferChances) {
-
-          cout << "Sorry your 3 chances ran out!";
-          exit_failure;
-        }
-        
         cout << "That is an acceptable value!";
         return bufferCapacityNumber;
         
@@ -48,7 +43,7 @@ namespace bufferCapacity {
         if (bufferAttempts == bufferChances) {
 
           cout << "Sorry your 3 chances ran out!";
-          exit_failure;
+          return EXIT_FAILURE;
         }
         cout << "Sorry that value is invalid, please try again!";
         continue;
