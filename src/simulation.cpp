@@ -18,6 +18,7 @@ namespace simulation {
     long long totalAccepted { 0 };
     long long totalDropped { 0 };
     long long totalTransmitted { 0 };
+    long long totalQueueOccupancy { 0 };
     packets maximumQueue { 0 };                  //Maximum packets in the queue
     
     std::mt19937 generator { std::random_device{}() };
@@ -58,12 +59,14 @@ namespace simulation {
          transmittedPackets = serviceCapacityNumber;
     }
 
+    currentQueue -= transmittedPackets;
+
     if (currentQueue > maximumQueue) {
     
       maximumQueue = currentQueue;
     }
-
-    currentQueue -= transmittedPackets;
+      
+    totalQueueOccupancy += currentQueue;
 
     totalGenerated += arrivalsThisTick;
     totalAccepted += acceptedPackets;
