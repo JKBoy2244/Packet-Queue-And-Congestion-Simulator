@@ -12,6 +12,7 @@
 #include "metrics.h"
 #include "display.h"
 #include "detailedOutputChoose.h"
+#include "simulateOutputChoose.h"
 
 using packets = int; 
 using choice = char;
