@@ -20,6 +20,7 @@ namespace simulation {
     long long totalTransmitted { 0 };
     long long totalQueueOccupancy { 0 };
     packets maximumQueue { 0 };                  //Maximum packets in the queue
+    int congestedTicks { 0 };
     
     std::mt19937 generator { std::random_device{}() };
     std::uniform_int_distribution<int> arrivalDistribution { 0, arrivalCapacityNumber };
@@ -68,6 +69,11 @@ namespace simulation {
       
     totalQueueOccupancy += currentQueue;
 
+    if (currentQueue * 100 >= bufferCapacityNumber * congestionThresholdNumber)  {
+      
+       ++congestedTicks;
+    }
+      
     totalGenerated += arrivalsThisTick;
     totalAccepted += acceptedPackets;
     totalDropped += droppedPackets;
