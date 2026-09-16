@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random>
 
+#include "metrics.h"
 #include "simulation.h"
 using packets = int;
 
@@ -92,6 +93,10 @@ namespace simulation {
 
     double averageQueue { static_cast<double>(totalQueueOccupancy) / simulationDurationNumber};
     
+    double dropPercentage {metrics::calculateDropPercentage(totalDropped, totalGenerated)};
+    double congestionPercentage {metrics::calculateCongestionPercentage(congestedTicks, simulationDurationNumber)};
+    double averageOccupancyPercentage {metrics::calculateAverageOccupancyPercentage(averageQueue, bufferCapacityNumber)};
+    
     std::cout << "Total generated: " << totalGenerated << '\n';
     std::cout << "Total accepted: " << totalAccepted << '\n';
     std::cout << "Total dropped: " << totalDropped << '\n';
@@ -100,6 +105,9 @@ namespace simulation {
     std::cout << "Maximum queue: " << maximumQueue << '\n';
     std::cout << "Congested ticks: " << congestedTicks << '\n';
     std::cout << "Average queue: " << averageQueue << '\n';
+    std::cout << "Drop percentage: " << dropPercentage << "%\n";
+    std::cout << "Congestion percentage: " << congestionPercentage << "%\n";
+    std::cout << "Average occupancy percentage: " << averageOccupancyPercentage << "%\n";
     
     return;
   }
