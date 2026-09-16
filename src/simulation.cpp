@@ -13,6 +13,11 @@ namespace simulation {
     //packets freeSpace {bufferCapacityNumber - currentQueue}       //number of spaces left for any external packets to join the buffer before it gets too full
 
     packets currentQueue { 0 };
+
+    long long totalGenerated { 0 };                        //Each 4 variables are defined with the type long long essentially because totals get larger and eventually any of them would exceed 32-bit. 
+    long long totalAccepted { 0 };
+    long long totalDropped { 0 };
+    long long totalTransmitted { 0 };
     
     std::mt19937 generator { std::random_device{}() };
     std::uniform_int_distribution<int> arrivalDistribution { 0, arrivalCapacityNumber };
@@ -53,6 +58,11 @@ namespace simulation {
     }
 
     currentQueue -= transmittedPackets;
+
+    totalGenerated += arrivalsThisTick;
+    totalAccepted += acceptedPackets;
+    totalDropped += droppedPackets;
+    totalTransmitted += transmittedPackets;
 
     std::cout << "\n--- Simulation Tick ---\n";
     std::cout << "Arrivals: " << arrivalsThisTick << '\n';
