@@ -11,6 +11,8 @@ namespace constants {
   inline constexpr int maximumArrivalRate = 50000;  //The user can configure the random arrival generator at most 50000 (50k) packets per tick
   inline constexpr int minimumCongestionThresholdPercentage = 1;    //Minimum otherwise the congested queue would be empty essentially
   inline constexpr int maximumCongestionThresholdPercentage = 100;  //Maximum amount for the congested queue to be actually full
+  inline constexpr int minimumSimulationDuration = 1;
+  inline constexpr int maximumSimulationDuration = 1000000;
   
 }
 
