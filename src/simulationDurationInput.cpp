@@ -19,7 +19,7 @@ namespace simulationDuration {
       cout << "How many simulation steps do you want the program to run (minimum is 1 and maximum is 1000000?)";       
       packets simulationDurationNumber {};
       cin >> simulationDurationNumber;                                                     //This part prompts user to enter the number of simulation duration steps
-      arrivalAttempts++;
+      simulationAttempts++;
 
       if (!std::cin) {
           std::cin.clear();
