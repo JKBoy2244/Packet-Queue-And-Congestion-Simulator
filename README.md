@@ -1,19 +1,27 @@
 # Packet Queue and Congestion Simulator
 
-## What is it 
+## What is it?
 
-- The purpose of the C++ simulator project is to explore and visualise how in real life, data packets can move through the network and pile up in queues as well as exploring consequences such as delay in response/network traffic or data losses when the traffic exceeds the maximum capacity.
+The purpose of this C++ simulator is to explore and visualise how data packets move through a finite network buffer and how queues can build up when packet traffic increases.
 
-## How does it work
+The simulator demonstrates concepts such as packet queuing, packet loss and congestion when incoming traffic exceeds the available buffer and service capacity.
 
-- First of all, in the project, the user configures and sets 6 information: buffer capacity, service capacity, maximum packet arrivals per tick, simulation duration, congestion threshold and output preference.
+## How does it work?
 
-- Once the user does that, basically a random number of packets arrive and if there's a buffer space available then for a certain amount of space, some packets are accepted into the buffer while the remaining gets left behind.
+- First, the user configures six simulation settings: buffer capacity, service capacity, maximum packet arrivals per tick, simulation duration, congestion threshold and detailed output preference.
 
-- According to the configured service capacity, that's where the router starts transmitting packets accordingly.
+- During each simulation tick, a random number of packets arrives between 0 and the maximum arrival value configured by the user.
 
-- The remaining queue occupancy gets recorded and the simulator checks whether the queue has reached the congestion threshold or not.
+- The simulator checks how much space is available in the buffer. Packets are accepted while space is available, while packets that cannot fit are dropped.
 
+- The router then transmits packets according to the configured service capacity.
+
+- Any packets that are not transmitted remain in the queue and are carried over to the next simulation tick.
+
+- The simulator records the queue occupancy and checks whether the configured congestion threshold has been reached.
+
+- After all simulation ticks have completed, the program displays the final packet statistics and calculated metrics.
+  
 ## Example run
 
 Example configuration:
@@ -76,7 +84,26 @@ Average occupancy percentage: 56.8%
 
 Here the packet arrivals are randomly generated so as a result, the result can vary
 ```
- 
+## Features
+
+- Configurable buffer capacity
+- Configurable service capacity per simulation tick
+- Random packet arrivals up to a user-defined maximum
+- Packet acceptance and dropping when the buffer is full
+- Persistent queue state across multiple simulation ticks
+- Congestion detection using a user-defined threshold
+- Tracking of total generated, accepted, dropped, and transmitted packets
+- Maximum queue occupancy tracking
+- Average queue occupancy calculation
+- Drop percentage calculation
+- Congestion percentage calculation
+- Average buffer occupancy percentage calculation
+- Optional detailed tick-by-tick output
+- Final simulation summary
+- Option to run another simulation without restarting the program
+- Input validation with limited retry attempts
+- Assertion-based tests for constants, inputs, simulation logic, and metrics
+
 ## Project Structure
 
 ```text
@@ -127,26 +154,89 @@ Packet-Queue-And-Congestion-Simulator/
 
 ```bash
 g++ -std=c++17 src/*.cpp -o packet_simulator
-
-./packet_simulator - for Linux/macOS
 ```
+4. Run the program:
+
+For Linux/macOS:
+
+```bash
+./packet_simulator
+```
+5. Follow the prompts to enter the simulation settings.
 
 ## How to Run the Tests
 
-1. Open a terminal in the project folder.
+The project contains separate tests for the constants, simulation logic, metrics, and user input.
 
-2. Compile and run the constants test:
+Open a terminal in the main project folder before running the commands below.
+
+### Constants Test
+
+This test checks that the minimum and maximum values used by the simulator are set correctly.
+
+Compile:
 
 ```bash
 g++ -std=c++17 tests/test_constants.cpp -o test_constants
+```
+
+Run:
+
+```bash
 ./test_constants
+```
 
+### Simulation Test
+
+This test checks the main packet queue rules, including packet acceptance, packet dropping, transmission, buffer capacity, and congestion behaviour.
+
+Compile:
+
+```bash
 g++ -std=c++17 tests/test_simulation.cpp -o test_simulation
-./test_simulation
+```
 
+Run:
+
+```bash
+./test_simulation
+```
+
+### Metrics Test
+
+This test checks the calculations used for the drop percentage, congestion percentage, and average buffer occupancy percentage.
+
+Compile:
+
+```bash
 g++ -std=c++17 tests/test_metrics.cpp src/metrics.cpp -o test_metrics
+```
+
+Run:
+
+```bash
 ./test_metrics
 ```
+
+### Input Test
+
+This test checks the different input functions used to collect and validate the simulation settings.
+
+Compile:
+
+```bash
+g++ -std=c++17 tests/test_inputs.cpp src/bufferCapacityInput.cpp src/serviceCapacityInput.cpp src/arrivalCapacityInput.cpp src/simulationDurationInput.cpp src/congestionThresholdInput.cpp src/detailedOutputChoose.cpp -o test_inputs
+```
+
+Run:
+
+```bash
+./test_inputs
+```
+
+The input test is interactive, so values need to be entered while the test is running.
+
+If all assertions pass, the tests will complete successfully.
 
 ## Time taken to complete the project
 
