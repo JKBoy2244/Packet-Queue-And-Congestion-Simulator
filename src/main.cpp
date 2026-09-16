@@ -13,7 +13,7 @@
 #include "detailedOutputChoose.h"
 
 using packets = int; 
-using select = char;
+using choice = char;
 
 int main() {
 
@@ -24,8 +24,15 @@ int main() {
      packets arrivalCapacityNumber = arrivalCapacity::arrivalCapacityInput();
      packets simulationDurationNumber = simulationDuration::simulationDurationInput();
      packets congestionThresholdNumber = congestionThreshold::congestionThresholdInput();
-     select option = detailedOutput::detailedOutputChoose();
-     simulation::simulation(bufferCapacityNumber, serviceCapacityNumber, arrivalCapacityNumber, simulationDurationNumber, congestionThresholdNumber, option);
+     choice option = detailedOutput::detailedOutputChoose();
+     simulation::simulation(arrivalCapacityNumber, bufferCapacityNumber, congestionThresholdNumber, serviceCapacityNumber, simulationDurationNumber, option);
+     char simulateAgain = simulateOutput::simulateOutputChoose();
+
+     if (simulateAgain == 'n') {
+
+        cout << "We're sorry to see you go, come back soon though!\n";
+        exit(0);
+     }
   }
   return 0;
 }
