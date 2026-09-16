@@ -5,20 +5,20 @@
 
 static_assert(constants::minimumBufferCapacity >= 1);
 static_assert(constants::maximumBufferCapacity <= 1000000);    
-static_assert(constants:: minimumBufferCapacity < maximumBufferCapacity);           //This block enforces a strict limit of buffered capacity in terms of valid ranges
+static_assert(constants:: minimumBufferCapacity < constants::maximumBufferCapacity);           //This block enforces a strict limit of buffered capacity in terms of valid ranges
 
 static_assert(constants::minimumServiceRate >= 1);
 static_assert(constants::maximumServiceRate <= 50000);
-static_assert(constants:: minimumServiceRate < maximumServiceRate);               //This block enforces a strict limit of service rates in terms of valid ranges
+static_assert(constants:: minimumServiceRate < constants::maximumServiceRate);               //This block enforces a strict limit of service rates in terms of valid ranges
 
 static_assert(constants::minimumArrivalRate >= 1);
 static_assert(constants::maximumArrivalRate <= 50000);
-static_assert(constants:: minimumArrivalRate < maximumArrivalRate);                     //This block enforces a strict limit of arrival rates in terms of valid ranges
+static_assert(constants:: minimumArrivalRate < constants::maximumArrivalRate);                     //This block enforces a strict limit of arrival rates in terms of valid ranges
 
 static_assert(constants::minimumCongestionThresholdPercentage >= 1);
 static_assert(constants::maximumCongestionThresholdPercentage <= 100);
-static_assert(constants:: minimumCongestionThresholdPercentage < maximumCongestionThresholdPercentage);    /*This block enforces a strict limit of congestion threshold proportion in terms of 
-                                                                                                             valid ranges*/
+static_assert(constants:: minimumCongestionThresholdPercentage < constants::maximumCongestionThresholdPercentage);    /*This block enforces a strict limit of congestion threshold proportion in terms of 
+                                                                                                                          valid ranges*/
 
 int main() {
 
