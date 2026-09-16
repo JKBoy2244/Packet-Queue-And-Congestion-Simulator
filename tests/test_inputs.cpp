@@ -35,7 +35,7 @@ int main() {
   
     std::cout << "\nTesting buffer capacity input...\n";
 
-    for (int bufferTest {0}; bufferTest < {1000}; ++bufferTest) {                                         //Each block here is each function input testing
+    for (int bufferTest {0}; bufferTest < 1000; ++bufferTest) {                                         //Each block here is each function input testing
       
       int buffer { bufferCapacity::bufferCapacityInput() };
 
@@ -46,7 +46,7 @@ int main() {
 
     std::cout << "\nTesting service capacity input...\n";
   
-    for (int serviceTest {0}; serviceTest < {1000}; ++serviceTest) {
+    for (int serviceTest {0}; serviceTest < 1000; ++serviceTest) {
       int service { serviceCapacity::serviceCapacityInput() };
 
       assert(service >= constants::minimumServiceRate);
@@ -56,7 +56,7 @@ int main() {
 
     std::cout << "\nTesting arrival capacity input...\n";
 
-    for (int arrivalTest {0}; arrivalTest < {1000}; ++arrivalTest) {
+    for (int arrivalTest {0}; arrivalTest < 1000; ++arrivalTest) {
       int arrival { arrivalCapacity::arrivalCapacityInput() };
 
       assert(arrival >= constants::minimumArrivalRate);
@@ -67,7 +67,7 @@ int main() {
 
     std::cout << "\nTesting simulation duration input...\n";
 
-    for (int durationTest {0}; durationTest < {1000}; ++durationTest) {
+    for (int durationTest {0}; durationTest < 1000; ++durationTest) {
       int duration { simulationDuration::simulationDurationInput() };
 
       assert(duration >= constants::minimumSimulationDuration);
@@ -78,7 +78,7 @@ int main() {
 
     std::cout << "\nTesting congestion threshold input...\n";
 
-    for (int congestionTest {0}; congestionTest < {1000}; ++congestionTest) {
+    for (int congestionTest {0}; congestionTest < 1000; ++congestionTest) {
       int congestion { congestionThreshold::congestionThresholdInput() };
 
       assert(congestion >= constants::minimumCongestionThresholdPercentage);
@@ -89,7 +89,7 @@ int main() {
 
     std::cout << "\nTesting detailed output choice...\n";
 
-    for (int congestionTest {0}; congestionTest < {1000}; ++congestionTest) {
+    for (int congestionTest {0}; congestionTest < 1000; ++congestionTest) {
       char detailed { detailedOutput::detailedOutputChoose() };
 
       assert(detailed == 'y' || detailed == 'n');
