@@ -14,7 +14,7 @@ namespace simulation {
 
     packets currentQueue { 0 };
 
-    for (int i {0}; i < = simulationDurationNumber; ++i) {
+    for (int i {0}; i <= simulationDurationNumber; ++i) {   //Indicates how many ticks it runs (how many simulation durations the program runs)
       
      // Temporary deterministic arrival count.
      // Later this will become a random value from 0 to arrivalCapacityNumber.
@@ -54,7 +54,7 @@ namespace simulation {
     std::cout << "\n--- Simulation Tick ---\n";
     std::cout << "Arrivals: " << arrivalsThisTick << '\n';
     std::cout << "Accepted: " << acceptedPackets << '\n';
-    std::cout << "Dropped: " << droppedPackets << '\n';
+    std::cout << "Dropped: " << droppedPackets << '\n';               //Results of each tick
     std::cout << "Transmitted: " << transmittedPackets << '\n';
     std::cout << "Queue remaining: " << currentQueue << '\n';
 
