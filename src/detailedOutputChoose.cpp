@@ -9,7 +9,7 @@ using chances = int;                             //Defining chances as an alias 
 
 namespace detailedOutput {
 
-  yesOrNo detailedOutputChoose {
+  yesOrNo detailedOutputChoose() {
 
      chances outputAttempts = 0;
      while (outputAttempts < outputChances) {
