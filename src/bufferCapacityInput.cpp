@@ -25,7 +25,7 @@ namespace bufferCapacity {
 
           if (bufferAttempts == bufferChances) {
               std::cout << "Sorry, your 3 chances ran out!";
-              return EXIT_FAILURE;
+              exit(EXIT_FAILURE);
           }
 
           std::cout << "Invalid input. Please enter a whole number.\n";
@@ -43,11 +43,13 @@ namespace bufferCapacity {
         if (bufferAttempts == bufferChances) {
 
           cout << "Sorry your 3 chances ran out!";
-          return EXIT_FAILURE;
+          exit(EXIT_FAILURE);
         }
         cout << "Sorry that value is invalid, please try again!";
         continue;
       }
     }
+
+    return 0;
   }
 }
