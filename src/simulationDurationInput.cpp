@@ -52,7 +52,7 @@ namespace simulationDuration {
       continue;
     }
       
-      bool validRange {simulationDurationNumber >= 1 && simulationDurationNumber <= 1000000};
+      bool validRange {simulationDurationNumber >= constants::minimumSimulationDuration && simulationDurationNumber <= constants::maximumSimulationDuration};
       if (validRange) {
 
         cout << "That is an acceptable value!";                                                                  //Once there's a value, the program checks if the value is within the valid range or even if an integer is typed or not
