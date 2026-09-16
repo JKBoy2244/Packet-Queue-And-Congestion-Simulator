@@ -6,8 +6,8 @@ using namespace std;
 
 int main()  {
   
-    for (int arrivals { 0 }; arrivals <= 1000000; ++arrivals) {
-        for (int freeSpace { 0 }; freeSpace <= 1000000; ++freeSpace) {
+    for (int arrivals { 0 }; arrivals <= 1000; ++arrivals) {
+        for (int freeSpace { 0 }; freeSpace <= 1000; ++freeSpace) {
           
             int acceptedPackets {};
 
