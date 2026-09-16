@@ -1,7 +1,7 @@
 #include <cassert>  //necessary when asserting tests
 #include <iostream>
 
-#include "../constants.h"
+#include "../src/constants.h"
 
 static_assert(constants::minimumBufferCapacity >= 1);
 static_assert(constants::maximumBufferCapacity <= 1000000);    
