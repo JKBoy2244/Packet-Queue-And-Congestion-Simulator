@@ -13,12 +13,15 @@ namespace simulation {
     //packets freeSpace {bufferCapacityNumber - currentQueue}       //number of spaces left for any external packets to join the buffer before it gets too full
 
     packets currentQueue { 0 };
+    
+    std::mt19937 generator { std::random_device{}() };
+    std::uniform_int_distribution<int> arrivalDistribution { 0, arrivalCapacityNumber };
 
-    for (int i {0}; i <= simulationDurationNumber; ++i) {   //Indicates how many ticks it runs (how many simulation durations the program runs)
+    for (int i {0}; i < simulationDurationNumber; ++i) {   //Indicates how many ticks it runs (how many simulation durations the program runs)
       
      // Temporary deterministic arrival count.
      // Later this will become a random value from 0 to arrivalCapacityNumber.
-     packets arrivalsThisTick { arrivalCapacityNumber };
+     packets arrivalsThisTick { arrivalDistribution(generator) };
 
      // Determine how many packet slots remain available.
      packets freeSpace { bufferCapacityNumber - currentQueue };
