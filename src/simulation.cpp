@@ -81,7 +81,7 @@ namespace simulation {
 
     if (option == 'y') {                      //This only shows if option == yes so user wants to display each tick summary, otherwise after doing all the tick simulation, the program prints the final results summary
       
-      std::cout << "\n--- Simulation Tick << (i + 1) << " ---\n";
+      std::cout << "\n--- Simulation Tick " << (i + 1) << " ---\n";
       std::cout << "Arrivals: " << arrivalsThisTick << '\n';
       std::cout << "Accepted: " << acceptedPackets << '\n';
       std::cout << "Dropped: " << droppedPackets << '\n';               //Results of each tick
