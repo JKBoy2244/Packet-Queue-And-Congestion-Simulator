@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include "constants.h"
 
+#include "serviceCapacityInput.h"
+
 using namespace std;
 
 constexpr int serviceChances = 3;               //Initialising chances to 3 as maximum
