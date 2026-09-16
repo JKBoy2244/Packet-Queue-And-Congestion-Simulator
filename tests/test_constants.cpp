@@ -50,7 +50,7 @@ int main() {
     assert(d <= constants::maximumSimulationDuration);  
   }
 
-  for (int e {1}; e <= 100; ++d) {
+  for (int e {1}; e <= 100; ++e) {
 
     assert(e >= constants::minimumCongestionThresholdPercentage);
     assert(e <= constants::maximumCongestionThresholdPercentage);  
