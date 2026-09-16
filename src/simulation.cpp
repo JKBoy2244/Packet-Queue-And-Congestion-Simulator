@@ -81,13 +81,18 @@ namespace simulation {
     totalTransmitted += transmittedPackets;
 
     if (option == 'y') {                      //This only shows if option == yes so user wants to display each tick summary, otherwise after doing all the tick simulation, the program prints the final results summary
-      
+
+      /*
       std::cout << "\n--- Simulation Tick " << (i + 1) << " ---\n";
       std::cout << "Arrivals: " << arrivalsThisTick << '\n';
       std::cout << "Accepted: " << acceptedPackets << '\n';
       std::cout << "Dropped: " << droppedPackets << '\n';               //Results of each tick
       std::cout << "Transmitted: " << transmittedPackets << '\n';
       std::cout << "Queue remaining: " << currentQueue << '\n';
+      */
+
+      display::displayTick(i + 1, arrivalsThisTick, acceptedPackets, droppedPackets, transmittedPackets, currentQueue);
+      
     }
   }
 
@@ -96,7 +101,8 @@ namespace simulation {
     double dropPercentage {metrics::calculateDropPercentage(totalDropped, totalGenerated)};
     double congestionPercentage {metrics::calculateCongestionPercentage(congestedTicks, simulationDurationNumber)};
     double averageOccupancyPercentage {metrics::calculateAverageOccupancyPercentage(averageQueue, bufferCapacityNumber)};
-    
+
+    /*
     std::cout << "Total generated: " << totalGenerated << '\n';
     std::cout << "Total accepted: " << totalAccepted << '\n';
     std::cout << "Total dropped: " << totalDropped << '\n';
@@ -108,7 +114,9 @@ namespace simulation {
     std::cout << "Drop percentage: " << dropPercentage << "%\n";
     std::cout << "Congestion percentage: " << congestionPercentage << "%\n";
     std::cout << "Average occupancy percentage: " << averageOccupancyPercentage << "%\n";
-    
+    */
+
+    display::displaySummary(totalGenerated, totalAccepted, totalDropped, totalTransmitted, currentQueue, maximumQueue, congestedTicks, averageQueue, dropPercentage, congestionPercentage, averageOccupancyPercentage);
     return;
   }
 }
