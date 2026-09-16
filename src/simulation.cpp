@@ -1,6 +1,7 @@
 #include <iostream>
 #include <random>
 
+#include "display.h"
 #include "metrics.h"
 #include "simulation.h"
 using packets = int;
