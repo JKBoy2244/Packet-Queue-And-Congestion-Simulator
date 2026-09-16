@@ -5,7 +5,7 @@
 
 static_assert(constants::minimumBufferCapacity >= 1);
 static_assert(constants::maximumBufferCapacity <= 1000000);    
-static_assert(constants:: minimumBufferCapacity < constants::maximumBufferCapacity);           //This block enforces a strict limit of buffered capacity in terms of valid ranges
+static_assert(constants::minimumBufferCapacity < constants::maximumBufferCapacity);           //This block enforces a strict limit of buffered capacity in terms of valid ranges
 
 static_assert(constants::minimumServiceRate >= 1);
 static_assert(constants::maximumServiceRate <= 50000);
@@ -46,5 +46,5 @@ int main() {
     assert(d <= constants::maximumCongestionThresholdPercentage);  
   }
 
-  std:: cout << "All tests successfully passed!";
+  std::cout << "All tests successfully passed!";
 }
