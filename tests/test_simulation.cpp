@@ -61,7 +61,7 @@ int main()  {
         }
     }
 
-    for (int bufferCapacity { 1 }; bufferCapacity <= 100; ++bufferCapacity)  {
+    for (int bufferCapacity { 1 }; bufferCapacity <= 1000; ++bufferCapacity)  {
       for (int currentQueue { 0 }; currentQueue <= bufferCapacity; ++currentQueue)  {
         int congestionThreshold { 75 };
 
@@ -75,9 +75,9 @@ int main()  {
      }
   }
 
-   for (int bufferCapacity { 1 }; bufferCapacity <= 100; ++bufferCapacity)  {
+   for (int bufferCapacity { 1 }; bufferCapacity <= 1000; ++bufferCapacity)  {
     for (int currentQueue { 0 }; currentQueue <= bufferCapacity; ++currentQueue) {
-        for (int arrivals { 0 }; arrivals <= 100; ++arrivals) {
+        for (int arrivals { 0 }; arrivals <= 1000; ++arrivals) {
           
             int freeSpace { bufferCapacity - currentQueue };
             int acceptedPackets {};
