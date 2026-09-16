@@ -54,9 +54,8 @@ namespace simulation {
   std::cout << "Accepted: " << acceptedPackets << '\n';
   std::cout << "Dropped: " << droppedPackets << '\n';
   std::cout << "Transmitted: " << transmittedPackets << '\n';
- std::cout << "Queue remaining: " << currentQueue << '\n';
-    }
-}
-    return;
+  std::cout << "Queue remaining: " << currentQueue << '\n';
+  
+  return;
   }
 }
