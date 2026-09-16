@@ -18,16 +18,23 @@ int main()  {
                 acceptedPackets = freeSpace;
             }
 
+            int droppedPackets { arrivals - acceptedPackets };
+          
             assert(acceptedPackets <= arrivals);
             assert(acceptedPackets <= freeSpace);
+
+            assert(droppedPackets >= 0);
+            assert(acceptedPackets + droppedPackets == arrivals);
 
             if (arrivals <= freeSpace)
             {
                 assert(acceptedPackets == arrivals);
+                assert(droppedPackets == 0);
             }
             else
             {
                 assert(acceptedPackets == freeSpace);
+                assert(droppedPackets == arrivals - freeSpace);
             }
         }
     }
