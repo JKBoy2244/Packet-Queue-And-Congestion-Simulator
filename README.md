@@ -75,7 +75,7 @@ Congestion percentage: 40%
 Average occupancy percentage: 56.8%
 
 Here the packet arrivals are randomly generated so as a result, the result can vary
-'''text
+```
  
 ## Project Structure
 
@@ -115,6 +115,39 @@ Packet-Queue-And-Congestion-Simulator/
 │   └── test_metrics.cpp
 │
 └── README.md
+```
 
 ## Building and Running the program
 
+1. Make sure you have a C++17-compatible compiler installed, such as `g++`.
+
+2. Open a terminal in the project folder.
+
+3. Compile the program:
+
+```bash
+g++ -std=c++17 src/*.cpp -o packet_simulator
+
+./packet_simulator - for Linux/macOS
+```
+
+## How to Run the Tests
+
+1. Open a terminal in the project folder.
+
+2. Compile and run the constants test:
+
+```bash
+g++ -std=c++17 tests/test_constants.cpp -o test_constants
+./test_constants
+
+g++ -std=c++17 tests/test_simulation.cpp -o test_simulation
+./test_simulation
+
+g++ -std=c++17 tests/test_metrics.cpp src/metrics.cpp -o test_metrics
+./test_metrics
+```
+
+## Time taken to complete the project
+
+9-10 hours approximately 
