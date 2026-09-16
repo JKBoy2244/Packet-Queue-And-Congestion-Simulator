@@ -30,7 +30,7 @@ namespace detailedOutput {
               exit(EXIT_FAILURE);
           }
 
-          std::cout << "Invalid input. Please enter a whole number.\n";
+          std::cout << "Invalid input. Please try again and type either y or n.\n";
           continue;
         }
 
@@ -49,7 +49,7 @@ namespace detailedOutput {
 
      if (!onlyWhitespace)  {
       
-       std::cout << "Invalid input. Enter exactly one whole number.\n";
+       std::cout << "Invalid input. Please try again and type either y or n.\n";
        continue;
       }
        
