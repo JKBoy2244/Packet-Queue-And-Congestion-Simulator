@@ -88,7 +88,7 @@ int main()  {
                 acceptedPackets = freeSpace;
             }
 
-            int droppedPackets {arrivals - acceptedPackets ;
+            int droppedPackets {arrivals - acceptedPackets};
             currentQueue += acceptedPackets;
 
             assert(currentQueue <= bufferCapacity);
