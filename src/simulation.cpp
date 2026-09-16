@@ -8,9 +8,9 @@ namespace simulation {
 
   void simulation(int arrivalCapacityNumber, int bufferCapacityNumber, int congestionThresholdNumber, int serviceCapacityNumber, int simulationDurationNumber, char option) {
 
-    packets bufferCapacity {1000};                       //maximum buffer capacity
-    packets currentQueue {850};                           //currently the number of packets inside the buffer
-    packets freeSpace {bufferCapacityNumber - currentQueue}       //number of spaces left for any external packets to join the buffer before it gets too full
+    //packets bufferCapacity {1000};                       //maximum buffer capacity
+    //packets currentQueue {850};                           //currently the number of packets inside the buffer
+    //packets freeSpace {bufferCapacityNumber - currentQueue}       //number of spaces left for any external packets to join the buffer before it gets too full
 
     packets currentQueue { 0 };
 
