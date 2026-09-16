@@ -64,6 +64,12 @@ namespace simulation {
     totalDropped += droppedPackets;
     totalTransmitted += transmittedPackets;
 
+    std::cout << "Total generated: " << totalGenerated << '\n';
+    std::cout << "Total accepted: " << totalAccepted << '\n';
+    std::cout << "Total dropped: " << totalDropped << '\n';
+    std::cout << "Total transmitted: " << totalTransmitted << '\n';
+    std::cout << "Packets remaining: " << currentQueue << '\n';
+      
     std::cout << "\n--- Simulation Tick ---\n";
     std::cout << "Arrivals: " << arrivalsThisTick << '\n';
     std::cout << "Accepted: " << acceptedPackets << '\n';
