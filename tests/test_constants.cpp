@@ -52,8 +52,8 @@ int main() {
 
   for (int e {1}; e <= 100; ++d) {
 
-    assert(d >= constants::minimumCongestionThresholdPercentage);
-    assert(d <= constants::maximumCongestionThresholdPercentage);  
+    assert(e >= constants::minimumCongestionThresholdPercentage);
+    assert(e <= constants::maximumCongestionThresholdPercentage);  
   }
 
   std::cout << "All tests successfully passed!";
