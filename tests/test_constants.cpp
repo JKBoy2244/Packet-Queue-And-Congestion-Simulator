@@ -24,7 +24,7 @@ int main() {
 
   for (int a {1}; a <= 1000000; ++a) {
 
-    assert(a >= constants::minimumBufferCapacity);
+    assert(a >= constants::minimumBufferCapacity);                                           //The loops tests are there essentially to make sure that every criteria is fully met
     assert(a <= constants::maximumBufferCapacity);
   }
 
