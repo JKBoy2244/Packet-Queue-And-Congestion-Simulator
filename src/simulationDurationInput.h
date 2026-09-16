@@ -2,7 +2,7 @@
 #define SIMULATIONDURATIONINPUT
 using packets = int;
 
-namespace simulationCapacity {
+namespace simulationDuration {
 
    packets simulationDurationInput();
 }
