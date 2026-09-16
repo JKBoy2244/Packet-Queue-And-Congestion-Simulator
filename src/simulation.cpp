@@ -78,22 +78,29 @@ namespace simulation {
     totalAccepted += acceptedPackets;
     totalDropped += droppedPackets;
     totalTransmitted += transmittedPackets;
-      
-    std::cout << "\n--- Simulation Tick ---\n";
-    std::cout << "Arrivals: " << arrivalsThisTick << '\n';
-    std::cout << "Accepted: " << acceptedPackets << '\n';
-    std::cout << "Dropped: " << droppedPackets << '\n';               //Results of each tick
-    std::cout << "Transmitted: " << transmittedPackets << '\n';
-    std::cout << "Queue remaining: " << currentQueue << '\n';
 
+    if (option == 'y') {                      //This only shows if option == yes so user wants to display each tick summary, otherwise after doing all the tick simulation, the program prints the final results summary
+      
+      std::cout << "\n--- Simulation Tick << (i + 1) << " ---\n";
+      std::cout << "Arrivals: " << arrivalsThisTick << '\n';
+      std::cout << "Accepted: " << acceptedPackets << '\n';
+      std::cout << "Dropped: " << droppedPackets << '\n';               //Results of each tick
+      std::cout << "Transmitted: " << transmittedPackets << '\n';
+      std::cout << "Queue remaining: " << currentQueue << '\n';
+    }
   }
 
+    double averageQueue { static_cast<double>(totalQueueOccupancy) / simulationDurationNumber};
+    
     std::cout << "Total generated: " << totalGenerated << '\n';
     std::cout << "Total accepted: " << totalAccepted << '\n';
     std::cout << "Total dropped: " << totalDropped << '\n';
     std::cout << "Total transmitted: " << totalTransmitted << '\n';
     std::cout << "Packets remaining: " << currentQueue << '\n';
     std::cout << "Maximum queue: " << maximumQueue << '\n';
+    std::cout << "Congested ticks: " << congestedTicks << '\n';
+    std::cout << "Average queue: " << averageQueue << '\n';
+    
     return;
   }
 }
