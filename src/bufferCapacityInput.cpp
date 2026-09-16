@@ -3,6 +3,8 @@
 #include <cstdlib>
 #include "constants.h"
 
+#include "bufferCapacityInput.h"
+
 using namespace std;
 
 constexpr int bufferChances = 3;               //Initialising chances to 3 as maximum
