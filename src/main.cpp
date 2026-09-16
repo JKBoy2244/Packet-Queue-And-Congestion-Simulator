@@ -12,8 +12,9 @@
 #include "metrics.h"
 #include "display.h"
 #include "detailedOutputChoose.h"
-#include "simulateOutputChoose.h"
+#include "simulateAgain.h"
 
+using namespace std;
 using packets = int; 
 using choice = char;
 
@@ -33,7 +34,7 @@ int main() {
      if (simulateAgain == 'n') {
 
         cout << "We're sorry to see you go, come back soon though!\n";
-        exit(0);
+        exit(EXIT_SUCCESS);
      }
   }
   return 0;
