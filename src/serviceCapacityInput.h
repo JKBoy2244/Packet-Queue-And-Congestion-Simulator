@@ -1,5 +1,5 @@
-#ifndef BUFFERCAPACITYINPUT
-#define BUFFERCAPACITYINPUT
+#ifndef SERVICECAPACITYINPUT
+#define SERVICECAPACITYINPUT
 using packets = int;
 
 namespace serviceCapacity {
