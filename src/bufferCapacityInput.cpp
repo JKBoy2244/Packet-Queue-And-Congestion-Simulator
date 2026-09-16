@@ -32,7 +32,6 @@ namespace bufferCapacity {
           continue;
      }
 
-    /*
      std::string remainingInput {};
      std::getline(std::cin, remainingInput);
 
@@ -51,8 +50,6 @@ namespace bufferCapacity {
       std::cout << "Invalid input. Enter exactly one whole number.\n";
       continue;
     }
-      
-    */
       
       bool validRange {bufferCapacityNumber >= constants::minimumBufferCapacity && bufferCapacityNumber <= constants::maximumBufferCapacity};
       if (validRange) {
