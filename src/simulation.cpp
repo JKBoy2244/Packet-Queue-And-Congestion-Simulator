@@ -14,48 +14,51 @@ namespace simulation {
 
     packets currentQueue { 0 };
 
+    for (int i {0}; i < = simulationDurationNumber; ++i) {
+      
      // Temporary deterministic arrival count.
      // Later this will become a random value from 0 to arrivalCapacityNumber.
-   packets arrivalsThisTick { arrivalCapacityNumber };
+     packets arrivalsThisTick { arrivalCapacityNumber };
 
-   // Determine how many packet slots remain available.
-   packets freeSpace { bufferCapacityNumber - currentQueue };
+     // Determine how many packet slots remain available.
+     packets freeSpace { bufferCapacityNumber - currentQueue };
 
-   packets acceptedPackets {};
+     packets acceptedPackets {};
 
-   if (arrivalsThisTick <= freeSpace)  {
+     if (arrivalsThisTick <= freeSpace)  {
      
-       acceptedPackets = arrivalsThisTick;
-   } else  {
-       acceptedPackets = freeSpace;
-   }
+         acceptedPackets = arrivalsThisTick;
+     } else  {
+         acceptedPackets = freeSpace;
+    }
 
-   // Any packets that cannot fit are dropped.
-   packets droppedPackets { arrivalsThisTick - acceptedPackets };
+     // Any packets that cannot fit are dropped.
+     packets droppedPackets { arrivalsThisTick - acceptedPackets };
 
-  // Only accepted packets enter the queue.
-  currentQueue += acceptedPackets;
+    // Only accepted packets enter the queue.
+    currentQueue += acceptedPackets;
 
-  packets transmittedPackets {};
+    packets transmittedPackets {};
 
     // The router cannot transmit more packets than actually exist.
-  if (currentQueue <= serviceCapacityNumber) {
+    if (currentQueue <= serviceCapacityNumber) {
     
-       transmittedPackets = currentQueue;
-  } else  {
+         transmittedPackets = currentQueue;
+    } else  {
      
-       transmittedPackets = serviceCapacityNumber;
+         transmittedPackets = serviceCapacityNumber;
+    }
+
+    currentQueue -= transmittedPackets;
+
+    std::cout << "\n--- Simulation Tick ---\n";
+    std::cout << "Arrivals: " << arrivalsThisTick << '\n';
+    std::cout << "Accepted: " << acceptedPackets << '\n';
+    std::cout << "Dropped: " << droppedPackets << '\n';
+    std::cout << "Transmitted: " << transmittedPackets << '\n';
+    std::cout << "Queue remaining: " << currentQueue << '\n';
+
   }
-
-  currentQueue -= transmittedPackets;
-
-  std::cout << "\n--- Simulation Tick ---\n";
-  std::cout << "Arrivals: " << arrivalsThisTick << '\n';
-  std::cout << "Accepted: " << acceptedPackets << '\n';
-  std::cout << "Dropped: " << droppedPackets << '\n';
-  std::cout << "Transmitted: " << transmittedPackets << '\n';
-  std::cout << "Queue remaining: " << currentQueue << '\n';
-  
   return;
   }
 }
