@@ -1,31 +1,36 @@
 #include <iostream>
+#include <limits>
 #include "constants.h"
+
 using namespace std;
 
-constexpr final int bufferChances = 3;
+constexpr int bufferChances = 3;
+using packets = int;
 
 namespace bufferCapacity {
-  int bufferCapacityInput() {
+  packets bufferCapacityInput() {
 
-    int bufferAttempts = 0;
+    packets bufferAttempts = 0;
     while (bufferAttempts < bufferChances) {
 
-      cout << "What's the maximum number of packets you want that's waiting in the queue at once (minimum is 1 and maximum is 1000000?";
-      string bufferCapacity {};
-      cin >> bufferCapacity;
+      cout << "What's the maximum number of packets you want that's waiting in the queue at once (minimum is 1 and maximum is 1000000?)";
+      packets bufferCapacityNumber {};
+      cin >> bufferCapacityNumber;
       bufferAttempts++;
-      
+
       if (!std::cin) {
-        if (bufferAttempts == bufferChances) {
+          std::cin.clear();
+          std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-          cout << "Sorry your 3 chances ran out!";
-          exit_failure;
-        }
-        cout << "Sorry, you have to enter something to continue, please try again!";
-        return;
-      }
+          if (bufferAttempts == bufferChances) {
+              std::cout << "Sorry, your 3 chances ran out!";
+              return 0;
+          }
 
-      int bufferCapacityNumber = static_cast<int>(bufferCapacity);
+          std::cout << "Invalid input. Please enter a whole number.\n";
+          continue;
+     }
+      
       bool validRange {bufferCapacityNumber >= 1 && bufferCapacityNumber <= 1000000};
       if (!validRange) {
 
@@ -37,6 +42,7 @@ namespace bufferCapacity {
         
         cout << "That is an acceptable value!";
         return bufferCapacityNumber;
+        
       } else {
 
         if (bufferAttempts == bufferChances) {
@@ -44,8 +50,8 @@ namespace bufferCapacity {
           cout << "Sorry your 3 chances ran out!";
           exit_failure;
         }
-        cout << "Sorry that value is invalud, please try again!";
-        return;
+        cout << "Sorry that value is invalid, please try again!";
+        continue;
       }
     }
   }
