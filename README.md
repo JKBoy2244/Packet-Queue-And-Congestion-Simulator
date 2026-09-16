@@ -240,4 +240,4 @@ If all assertions pass, the tests will complete successfully.
 
 ## Time taken to complete the project
 
-9-10 hours approximately 
+approximately 9 hours
